@@ -6,21 +6,21 @@ class Triangle
     @side1, @side2, @side3 = side1, side2, side3
   end
 
-  def equilateral
+  def equilateral?
     side1 == side2 && side2 == side3
   end
 
-  def isosceles
+  def isosceles?
     [side1, side2, side3].uniq.length == 2
   end
 
-  def scalene
+  def scalene?
     # not (equilateral or isosceles)
-    ! (equilateral || isosceles)
+    ! (equilateral? || isosceles?)
   end
 
   def recite_facts
-    print_triangle_type(isosceles, equilateral, scalene)
+    print_triangle_type
 
     angles = calculate_angles(side1, side2, side3)
     puts 'The angles of this triangle are ' + angles.join(',')
@@ -38,12 +38,12 @@ class Triangle
     (rads * 180 / Math::PI).round
   end
 
-  def print_triangle_type(isosceles, equilateral, scalene)
-    if isosceles
+  def print_triangle_type
+    if isosceles?
       puts 'This triangle is isosceles! Also, that word is hard to type.'
     end
-    puts 'This triangle is equilateral!' if equilateral
-    puts 'This triangle is scalene and mathematically boring.' if scalene
+    puts 'This triangle is equilateral!' if equilateral?
+    puts 'This triangle is scalene and mathematically boring.' if scalene?
   end
 end
 
