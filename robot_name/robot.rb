@@ -22,11 +22,8 @@ class Robot
   private
 
   def generate_name
-    if @name_generator
-      @name_generator.call
-    else
-      internal_name_generator
-    end
+    return @name_generator.call if @name_generator
+    internal_name_generator
   end
 
   private
@@ -51,7 +48,7 @@ class Robot
   end
 
   def valid_name?
-    (new_name? && correct_name_format?)
+    new_name? && correct_name_format?
   end
 
   private
