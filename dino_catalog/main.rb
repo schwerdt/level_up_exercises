@@ -12,7 +12,7 @@ user_input.query_user
 
 dino_summary =  user_input.perform_user_query(dino_filter)
 
-if dino_summary.length > 0
+if dino_summary.any?
   puts dino_summary
 else
   puts "No dinos remain after filtering."

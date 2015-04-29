@@ -41,7 +41,8 @@ class Dino
   end
 
   def biped?
-    @walking_style[/Biped/] == "Biped"
+    @walking_style[/Biped/i] == "Biped"
+    # @walking_style.downcase.include?("biped")
   end
 
   def summarize_dino
