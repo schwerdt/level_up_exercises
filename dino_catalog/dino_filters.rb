@@ -36,11 +36,12 @@ class DinoFilters
   end
 
   def summarize_list
-    summarized_dinos = []
-    @dinos.each do |dino|
-      summarized_dinos += dino.summarize_dino
-    end
-    summarized_dinos
+#    summarized_dinos = []
+#   @dinos.each do |dino|
+#     summarized_dinos += dino.summarize_dino
+#   end
+#   summarized_dinos
+    @dinos.map( &:summarize_dino)
   end
 
   # Want the ability to print single dino's data based on its index in dino list
